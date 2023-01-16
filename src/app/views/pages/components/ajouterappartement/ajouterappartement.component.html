@@ -1,38 +1,49 @@
 <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="chris">
+    <thead>
+        <tr>
+            <th scope="col">Ville</th>
+            <th scope="col">Desc</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
 
+    </tbody>
+</table>
+<br/>
+<h5 class="card-title text-center">Ajouter Appartement</h5>
+<br/>
+<div class="text-center">
+    <form class="form">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Ville</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ville...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"> Description</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Description">
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"> Prix</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="2500dh">
+
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"> Image</label>
+            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="2500dh">
+
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Add">
+
+    </form>
 </div>

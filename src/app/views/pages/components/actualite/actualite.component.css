@@ -1,10 +1,22 @@
-img {
-    width: 100%;
-    height: 300px;
+/* .actu {
+    margin-left: 3%;
+} */
+
+.profil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
-.actu {
-    margin-left: 35%;
+.cardre {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-left: 3%;
+}
+
+.part {
+    background-color: rgb(76, 122, 139);
+    color: white;
+    text-align: center;
 }
 
 .likeandcom {
