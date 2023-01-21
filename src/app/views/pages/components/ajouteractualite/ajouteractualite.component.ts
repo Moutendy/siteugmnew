@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./ajouteractualite.component.css']
 })
 export class AjouteractualiteComponent {
+  table:boolean=false;
 
+  ajouter()
+  {
+    this.table=!this.table;
+  }
 }

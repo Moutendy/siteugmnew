@@ -6,16 +6,17 @@ import { AppComponent } from './app.component';
 import { HeardComponent } from './views/layout/heard/heard.component';
 import { SidenavComponent } from './views/layout/sidenav/sidenav.component';
 import { LayoutModule } from './views/layout/layout.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-  
   ],
   imports: [
     BrowserModule,
     LayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,9 +18,9 @@
     </tbody>
 </table>
 <br/>
-<h5 class="card-title text-center">Ajouter Actualite</h5>
+<h5 class="card-title text-center" (click)="ajouter()">Ajouter Actualite</h5>
 <br/>
-<div class="text-center">
+<div class="text-center" *ngIf="table">
     <form class="form">
 
         <div class="mb-3">

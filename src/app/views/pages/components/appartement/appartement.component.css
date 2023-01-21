@@ -1,19 +1,22 @@
-/* .card {
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    height: 580px;
+/* .actu {
+    margin-left: 3%;
 } */
 
-.cadre {
+.profil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.cardre {
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-left: 3%;
 }
 
-img {
-    /* width: 100%;
-    height: 100%; */
-}
-
-.actu {
-    margin-left: 35%;
+.part {
+    background-color: rgb(76, 122, 139);
+    color: white;
+    text-align: center;
 }
 
 .likeandcom {
@@ -28,4 +31,8 @@ img {
 .scrollable-section::-webkit-scrollbar {
     width: 0;
     /* rend la barre de défilement invisible */
+}
+
+.desc {
+    margin: 2%;
 }

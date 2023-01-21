@@ -1,0 +1,14 @@
+.table {
+    margin: 1%;
+    margin-top: 10%;
+    border-radius: 12.5px 12.5px 12.5px 12.5px;
+    box-shadow: 3px 3px rgb(167, 164, 164), -1em 0 0.4em beige;
+}
+
+.form {
+    width: 50%;
+    /* définit la largeur de l'élément */
+    margin: auto;
+    box-shadow: 3px 3px rgb(167, 164, 164), -1em 0 0.4em beige;
+    border-radius: 12.5px 12.5px 12.5px 12.5px;
+}

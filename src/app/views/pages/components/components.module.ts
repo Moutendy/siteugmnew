@@ -10,6 +10,7 @@ import { CineComponent } from './cine/cine.component';
 import { VisiteurComponent } from './visiteur/visiteur.component';
 import { AppartementModule } from './appartement/appartement.module';
 
+
 const routes: Routes = [
   {
     path: 'actualite',
@@ -45,7 +46,8 @@ const routes: Routes = [
     AjouterappartementComponent,
     AjouteractualiteComponent,
     CineComponent,
-    VisiteurComponent
+    VisiteurComponent,
+
   ],
   imports: [
     CommonModule,

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './views/layout/base/base.component';
 
 const routes: Routes = [
+  { path:'auth', loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule) },
+
   {
     path: 'base',
     component: BaseComponent,
@@ -14,7 +16,7 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'base',
+    redirectTo:'auth',
     pathMatch:'full'
   }
 ];

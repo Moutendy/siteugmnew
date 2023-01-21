@@ -1,1 +1,56 @@
-<p>visiteur works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ville</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Status</th>
+            <th scope="col">Raison de la visite</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Rabat</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>1 minutes</td>
+        </tr>
+
+    </tbody>
+</table>
+<br/>
+<h5 class="card-title text-center" (click)="ajouter()">Ajouter visiteurs</h5>
+<br/>
+<div class="text-center" *ngIf="table">
+    <form class="form">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Ville</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Rabat...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"> Nom</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="chritian...">
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"> Status</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="etudiant">
+
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"> Raison de la visite</label>
+            <input type="file" class="form-control" id="exampleFormControlInput1">
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"> Date de la visite</label>
+            <input type="date" class="form-control" id="exampleFormControlInput1">
+
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Add">
+
+    </form>
+</div>

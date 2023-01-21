@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
+import { LocalService } from 'src/app/core/local.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-base',
@@ -8,7 +10,7 @@ import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/route
 })
 export class BaseComponent {
   isLoading: boolean | undefined;
-  constructor(private router: Router) {
+  constructor(private router: Router,private local:LocalService) {
     router.events.forEach((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.isLoading = true;
@@ -16,10 +18,13 @@ export class BaseComponent {
         this.isLoading = false;
       }
     });
+
    }
 
 
 
   ngOnInit(): void {
   }
+
+
 }
