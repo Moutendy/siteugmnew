@@ -37,7 +37,7 @@ export class AuthService {
     body.set('password_confirmation', password_confirmation);
     body.set('email', email);
     body.set('password', password);
-console.log(name);
+
     return this.http.post(this.ApiUrl + 'register', body, this.httpOptions)
   }
 

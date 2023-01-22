@@ -8,8 +8,8 @@
                     <div class="card mb-3 col-md-6 cardre">
                         <div class="card-body">
 
-                            <p class="card-text">gttrr</p>
-                            <p class="card-text"><small class="text-muted">145</small></p>
+
+
                         </div>
                         <img class="card-img-top" src="../../../../assets/images/eva.jpg" alt="Card image cap">
                         <hr/>
@@ -47,7 +47,22 @@
 
                 </div>
 
+                <h5 class="card-title text-center" (click)="ajouter()">Ajouter cine</h5>
+                <div class="text-center" *ngIf="table">
+                    <form class="form">
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">video</label>
+                            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Ville...">
+                        </div>
+
+
+
+                        <input type="submit" class="btn btn-primary" value="Add">
+
+                    </form>
+                </div>
 
             </div>
+
     </div>
-</div>

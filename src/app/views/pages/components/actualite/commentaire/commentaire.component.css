@@ -1,0 +1,15 @@
+.profil {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.scrollable-section {
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.scrollable-section::-webkit-scrollbar {
+    width: 0;
+    /* rend la barre de défilement invisible */
+}

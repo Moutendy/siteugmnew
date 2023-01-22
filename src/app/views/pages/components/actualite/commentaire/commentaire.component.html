@@ -1,1 +1,31 @@
-<p>commentaire works!</p>
+<br/>
+<form [formGroup]="comForm" (ngSubmit)="ajouter()" class="form">
+    <div class="row">
+        <div class="form-group col-9">
+
+            <input formControlName="comment" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ajoute commentaire">
+        </div>
+
+        <div class="form-group col-3">
+            <input type="submit" id="submit" value="ajouter" class="form-control" />
+        </div>
+    </div>
+</form>
+<hr/>
+<div class="scrollable-section">
+    <div class="card" *ngFor="let item of commentaires">
+
+        <div class="row text-center">
+            <div class="col-3">
+                <img src="{{ item.user.image }}" class="card-img-top profil" alt="...">
+            </div>
+            <div class="col-8 part">
+                <p class="card-text"><small class="text-muted"> {{ item.comment }} </small></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>

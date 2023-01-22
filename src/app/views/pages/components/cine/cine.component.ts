@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./cine.component.css']
 })
 export class CineComponent {
+  table:boolean=false;
 
+  ajouter()
+  {
+    this.table=!this.table;
+  }
 }
