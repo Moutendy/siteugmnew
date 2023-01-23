@@ -11,21 +11,23 @@
         </div>
     </div>
 </form>
-<hr/>
+<div class="row text-center"></div>
 <div class="scrollable-section">
     <div class="card" *ngFor="let item of commentaires">
 
         <div class="row text-center">
             <div class="col-3">
-                <img src="{{ item.user.image }}" class="card-img-top profil" alt="...">
+                <img src="{{ item.user.image }}" class="card-img-top profil">
             </div>
-            <div class="col-8 part">
+            <div class="col-7 part">
                 <p class="card-text"><small class="text-muted"> {{ item.comment }} </small></p>
             </div>
+            <div class="col">
+                <button class="form-control" (click)="delete(item.id)">delete</button>
+            </div>
         </div>
+
+
+
+
     </div>
-
-
-
-
-</div>

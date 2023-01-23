@@ -14,7 +14,7 @@
     <div class="col-6 scrollable-section">
         <div class="card" *ngFor="let item of actus">
             <p class="card-text desc">{{ item.body }}</p>
-            <p class="card-text"><small class="text-muted">{{ item.updated_at}}</small></p>
+            <p class="card-text desc"><small class="text-muted">{{ item.updated_at}}</small></p>
 
             <img *ngIf="item.image" class="card-img-top" src="{{ item.image }}" alt="Card image cap">
             <div class="card-body">

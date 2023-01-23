@@ -26,6 +26,8 @@ export class CommentaireactuService {
     body.set('comment', comment);
     return this.http.post(this.ApiUrl + 'posts/comments/'+id,body,this.httpOptions)
   }
-
+  delete(id:any):Observable<any>{
+   return this.http.delete<any>(this.ApiUrl + 'deleteadmincomments/'+id, this.httpOptions);
+  }
 
 }
