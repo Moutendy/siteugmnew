@@ -72,7 +72,7 @@ export class ActualService {
   }
 
   destroy(id:number):Observable<any> {
-    return this.http.delete(this.ApiUrl + 'posts/'+id, this.httpOptions)
+    return this.http.delete(this.ApiUrl + 'destroyadmin/'+id, this.httpOptions)
   }
 
   listeuser():Observable<any>{
