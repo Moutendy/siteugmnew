@@ -9,6 +9,7 @@ import { AjouteractualiteComponent } from './ajouteractualite/ajouteractualite.c
 import { CineComponent } from './cine/cine.component';
 import { VisiteurComponent } from './visiteur/visiteur.component';
 import { AppartementModule } from './appartement/appartement.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -53,7 +54,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ActualiteModule,
-    AppartementModule
+    AppartementModule,
+    ReactiveFormsModule,
   ]
 })
 export class ComponentsModule { }

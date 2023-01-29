@@ -2,37 +2,41 @@
     <thead>
         <tr>
 
-            <th scope="col">Desc</th>
+            <th class="text-center">Desc</th>
 
-            <th scope="col">Image</th>
+            <th class="text-center">Image</th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
+    <div class="scrollable-section">
+        <tbody>
 
-            <td>Mark</td>
-            <td>Otto</td>
+            <tr *ngFor="let post of actualiter ">
 
-        </tr>
+                <td class="body">{{ post.body }}</td>
+                <td><img *ngIf="post.image " class="card-img-top profil" src="{{ post.image }} " alt="Card image cap "></td>
 
-    </tbody>
+            </tr>
+
+        </tbody>
+    </div>
 </table>
+
 <br/>
-<h5 class="card-title text-center" (click)="ajouter()">Ajouter Actualite</h5>
+<h5 class="card-title text-center " (click)="ajouter() ">Ajouter Actualite</h5>
 <br/>
 <div class="text-center" *ngIf="table">
-    <form class="form">
+    <form [formGroup]="actualite" (ngSubmit)="ajouteractualiter()" class="form">
 
-        <div class="mb-3">
+        <div class="mb-3 ">
             <label for="exampleFormControlTextarea1" class="form-label"> Description</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Description">
+            <input formControlName="body" type="text" class="form-control" id="exampleFormControlInput1 " placeholder="Description ">
 
         </div>
 
 
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"> Image</label>
-            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="2500dh">
+            <label for="exampleFormControlTextarea1" class="form-label "> Image</label>
+            <input (change)="onFileChange($event)" type="file" class="form-control" id="exampleFormControlInput1">
 
         </div>
 

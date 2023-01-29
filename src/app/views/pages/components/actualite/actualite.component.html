@@ -56,5 +56,19 @@
         </div>
     </div>
 
-    <div class="col-3 part">Liste d'utilisateurs</div>
+    <div class="col-3 part">
+        <p class="card-title">Liste d'utilisateurs</p>
+
+        <hr/>
+        <div class="col-6 scrollable-section">
+            <div class="row text-center">
+                <div class="col-12" *ngFor="let user of users">
+                    <img *ngIf="user.image" src="{{ user.image }}" class="card-img-top profil" alt="...">
+                    <p class="card-title">{{ user.name}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

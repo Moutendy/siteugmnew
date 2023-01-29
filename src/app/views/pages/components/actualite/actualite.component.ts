@@ -8,6 +8,7 @@ import { ActualService } from 'src/app/core/services/actual.service';
 import { take } from 'rxjs';
 import { Actu } from 'src/app/core/model/actu';
 import Swal from 'sweetalert2';
+import { User } from 'src/app/core/model/user';
 
 @Component({
   selector: 'app-actualite',
@@ -26,16 +27,17 @@ export class ActualiteComponent {
     }
 
     actus!:Actu[];
+    users!:User[];
   ngOnInit(): void {
     this.index();
-console.log(this.local.getData('token'))
+    this.listeusers();
   }
 
   index() {
 return this.actu.index().pipe(take(1)).subscribe((data:any) =>{
 this.actus=data.post;
 this.actus.forEach(e=>{
-  console.log(e);
+
 })
 })
 
@@ -111,4 +113,15 @@ this.index();
     const modalRef= this.modalService.open(CommentaireComponent, { size: 'm', centered: true });
     modalRef.componentInstance.idcomment = id;
   }
+
+  listeusers()
+  {
+return  this.actu.listeuser().pipe(take(1)).subscribe((data)=>{
+
+  this.users=data.user;
+
+})
+  }
+
+
 }

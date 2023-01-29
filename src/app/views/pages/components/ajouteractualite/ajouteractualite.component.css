@@ -12,3 +12,24 @@
     box-shadow: 3px 3px rgb(167, 164, 164), -1em 0 0.4em beige;
     border-radius: 12.5px 12.5px 12.5px 12.5px;
 }
+
+.profil {
+    width: 50%;
+    height: 60%;
+    border-radius: 50%;
+}
+
+.body {
+    display: block;
+    width: 50%;
+}
+
+.scrollable-section {
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.scrollable-section::-webkit-scrollbar {
+    width: 0;
+    /* rend la barre de défilement invisible */
+}

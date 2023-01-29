@@ -22,7 +22,7 @@ export class CommentaireactuService {
   }
   store(comment:string,id:any){
 
-    let body = new URLSearchParams();
+    let body = new URLSearchParams(); 
     body.set('comment', comment);
     return this.http.post(this.ApiUrl + 'posts/comments/'+id,body,this.httpOptions)
   }
