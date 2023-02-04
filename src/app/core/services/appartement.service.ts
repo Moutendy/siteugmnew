@@ -27,7 +27,10 @@ export class AppartementService {
   index():Observable<Appartement> {
     return this.http.get<Appartement>(this.ApiUrl + 'appartemnt', this.httpOptions);
   }
-  store(image: File,body:any){
+
+
+
+  storeappartement(image: File,name:any,desc:any,ville:any,prix:any){
 
     const reader = new FileReader();
     reader.readAsArrayBuffer(image);
@@ -35,8 +38,11 @@ export class AppartementService {
       if(reader.result){
           const formData = new FormData();
           formData.append('image', image);
-          formData.append('body',body);
-          return this.http.post(this.ApiUrl + 'storeadmin',formData)
+          formData.append('name',name);
+          formData.append('desc',desc);
+          formData.append('ville',ville);
+          formData.append('prix',prix);
+          return this.http.post(this.ApiUrl + 'appartemntadmin',formData)
             .subscribe(response => {
 
             });
@@ -66,12 +72,9 @@ export class AppartementService {
   }
 
   destroy(id:number):Observable<any> {
-    return this.http.delete(this.ApiUrl + 'destroyadmin/'+id, this.httpOptions)
+    return this.http.delete(this.ApiUrl + 'appartemntadmin/'+id, this.httpOptions)
   }
 
-  listeuser():Observable<any>{
-return this.http.get<any>(this.ApiUrl+'users' ,this.httpOptions);
-  }
 
 
 

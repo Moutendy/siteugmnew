@@ -95,11 +95,11 @@ this.index();
   }
 
 
-  commentaire(id:number)
-  {
-   this.modalService.open(CommentaireComponent);
+  // commentaire(id:number)
+  // {
+  //  this.modalService.open(CommentaireComponent);
 
-  }
+  // }
 
   ferme()
   {

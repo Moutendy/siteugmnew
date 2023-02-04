@@ -1,24 +1,22 @@
 <table class="table">
     <thead>
         <tr>
-
-            <th class="text-center">Desc</th>
-
-            <th class="text-center">Image</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
         </tr>
     </thead>
-    <div class="scrollable-section">
-        <tbody>
 
-            <tr *ngFor="let post of actualiter ">
+    <tbody>
 
-                <td class="body">{{ post.body }}</td>
-                <td><img *ngIf="post.image " class="card-img-top profil" src="{{ post.image }} " alt="Card image cap "></td>
+        <tr *ngFor="let post of actualiter ">
 
-            </tr>
+            <th class="body">{{ post.body }}</th>
+            <th><img *ngIf="post.image" class="card-img-top profil" src="{{ post.image }} " alt="Card image cap "></th>
 
-        </tbody>
-    </div>
+        </tr>
+
+    </tbody>
+
 </table>
 
 <br/>

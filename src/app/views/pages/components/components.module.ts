@@ -10,6 +10,7 @@ import { CineComponent } from './cine/cine.component';
 import { VisiteurComponent } from './visiteur/visiteur.component';
 import { AppartementModule } from './appartement/appartement.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppartementService } from 'src/app/core/services/appartement.service';
 
 
 const routes: Routes = [
@@ -56,6 +57,7 @@ const routes: Routes = [
     ActualiteModule,
     AppartementModule,
     ReactiveFormsModule,
-  ]
+  ],
+  providers:[AppartementService]
 })
 export class ComponentsModule { }

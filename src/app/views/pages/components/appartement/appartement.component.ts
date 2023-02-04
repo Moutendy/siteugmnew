@@ -5,6 +5,7 @@ import { take } from 'rxjs';
 import { AppartementService } from 'src/app/core/services/appartement.service';
 import { User } from 'src/app/core/model/user';
 import { Appartement } from 'src/app/core/model/appartement';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-appartement',
@@ -23,19 +24,75 @@ private appartementservice:AppartementService,
     ngOnInit(): void {
 this.index();
     }
-  modale()
+  modale(id:number)
   {
-    this.modalService.open(CommentaireComponent);
+    const modalRef= this.modalService.open(CommentaireComponent, { size: 'm', centered: true });
+    modalRef.componentInstance.idcomment = id;
   }
 
   index() {
     return this.appartementservice.index().pipe(take(1)).subscribe((data:any) =>{
     this.appartements=data.appartements;
     this.appartements.forEach(e=>{
-console.log(e);
+
 
     })
     })
 
       }
+
+
+      deleteactu(id:number)
+  {
+this.appartementservice.destroy(id).pipe(take(1)).subscribe({
+
+})
+this.index();
+  this.sucess("appartement indesirable supprimer");
+  }
+
+  alertdelete(id:number)
+  {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'oui, supprimer !'
+    }).then((result) => {
+      if (result.isConfirmed) {
+this.deleteactu(id);
+      }
+    })
+  }
+  sucess(message:String)
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'center',
+      showConfirmButton: false,
+      timer: 2500,
+      timerProgressBar: false,
+      color: '#06417d'
+    })
+
+    Toast.fire({
+      icon: 'success',
+      title: message
+    })
+  }
+
+  listeusers(id:number)
+  {
+return  this.appartementservice.likeOrUnlike(id).pipe(take(1)).subscribe((data)=>{
+
+  this.index();
+
+})
+  }
+
+
+ 
 }
