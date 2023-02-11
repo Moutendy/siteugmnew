@@ -1,0 +1,35 @@
+.actu {
+    width: 70%;
+    margin-left: 160px;
+    height: 600px;
+    background-color: none;
+}
+
+.profil .img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    position: absolute;
+    left: 180px;
+    bottom: 150px;
+}
+
+.img {
+    width: 600px;
+    height: 350px;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 2px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}

@@ -11,6 +11,8 @@ import { VisiteurComponent } from './visiteur/visiteur.component';
 import { AppartementModule } from './appartement/appartement.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppartementService } from 'src/app/core/services/appartement.service';
+import { ProfilComponent } from './profil/profil.component';
+import { ProfilModule } from './profil/profil.module';
 
 
 const routes: Routes = [
@@ -38,7 +40,8 @@ const routes: Routes = [
   {
     path: 'visiteurs',
     component: VisiteurComponent
-  }
+  },
+  { path:'profil', component:  ProfilComponent},
 ]
 
 @NgModule({
@@ -49,12 +52,14 @@ const routes: Routes = [
     AjouteractualiteComponent,
     CineComponent,
     VisiteurComponent,
+    ProfilComponent,
 
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ActualiteModule,
+    ProfilModule,
     AppartementModule,
     ReactiveFormsModule,
   ],
