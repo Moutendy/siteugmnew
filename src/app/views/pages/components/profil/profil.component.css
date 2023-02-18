@@ -1,6 +1,6 @@
 .actu {
-    width: 70%;
-    margin-left: 160px;
+    width: 100%;
+    margin-left: 10px;
     height: 600px;
     background-color: none;
 }
@@ -15,8 +15,8 @@
 }
 
 .img {
-    width: 600px;
-    height: 350px;
+    width: 700px;
+    height: 450px;
     display: block;
     margin: 0 auto;
     border: none;
@@ -32,4 +32,20 @@ h2 {
 p {
     text-align: center;
     margin-top: 20px;
+}
+
+.icon {
+    position: absolute;
+    left: 260px;
+    bottom: 150px;
+}
+
+.icon1 {
+    position: absolute;
+    right: 300px;
+    bottom: 200px;
+}
+
+.input-file {
+    display: none;
 }
