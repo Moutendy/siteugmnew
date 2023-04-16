@@ -14,7 +14,7 @@
 }
 
 .part {
-    background-color: rgb(76, 122, 139);
+    background-color: rgb(244, 244, 244);
     color: white;
     text-align: center;
 }
@@ -26,6 +26,7 @@
 .scrollable-section {
     overflow-y: auto;
     max-height: 650px;
+    position: relative;
 }
 
 .scrollable-section::-webkit-scrollbar {
@@ -35,4 +36,10 @@
 
 .desc {
     margin: 2%;
+}
+
+.icon {
+    position: relative;
+    top: 50%;
+    left: 10%;
 }

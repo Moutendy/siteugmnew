@@ -13,8 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppartementService } from 'src/app/core/services/appartement.service';
 import { ProfilComponent } from './profil/profil.component';
 import { ProfilModule } from './profil/profil.module';
-
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 const routes: Routes = [
   {
     path: 'actualite',
@@ -53,7 +55,6 @@ const routes: Routes = [
     CineComponent,
     VisiteurComponent,
     ProfilComponent,
-
   ],
   imports: [
     CommonModule,
@@ -61,7 +62,11 @@ const routes: Routes = [
     ActualiteModule,
     ProfilModule,
     AppartementModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
     ReactiveFormsModule,
+    MatInputModule
   ],
   providers:[AppartementService]
 })

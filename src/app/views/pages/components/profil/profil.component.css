@@ -49,3 +49,9 @@ p {
 .input-file {
     display: none;
 }
+
+.btns {
+    position: absolute;
+    right: 300px;
+    bottom: 100px;
+}

@@ -46,6 +46,7 @@ this.routes.navigate(['auth/login']);
 
 this.local.saveData('token',data.token);
 this.local.saveData('name',data.user.name);
+this.local.saveData('image',data.user.image);
 this.sucess("Bienvenu "+this.local.getData("name"));
 this.routes.navigate(['/base/siteugm/actualite']);
 

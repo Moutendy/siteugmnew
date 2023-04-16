@@ -38,6 +38,7 @@ export class AuthService {
     body.set('email', email);
     body.set('password', password);
 
+
     return this.http.post(this.ApiUrl + 'register', body, this.httpOptions)
   }
 

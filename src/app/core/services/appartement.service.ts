@@ -25,7 +25,7 @@ export class AppartementService {
   constructor(private http: HttpClient) { }
 
   index():Observable<Appartement> {
-    return this.http.get<Appartement>(this.ApiUrl + 'appartemnt', this.httpOptions);
+    return this.http.get<Appartement>(this.ApiUrl + 'appartements', this.httpOptions);
   }
 
 
@@ -42,7 +42,7 @@ export class AppartementService {
           formData.append('desc',desc);
           formData.append('ville',ville);
           formData.append('prix',prix);
-          return this.http.post(this.ApiUrl + 'appartemntadmin',formData)
+          return this.http.post(this.ApiUrl + 'appartementsadmin',formData)
             .subscribe(response => {
 
             });
@@ -56,11 +56,11 @@ export class AppartementService {
   }
 
   show(id:number):Observable<Appartement> {
-    return this.http.get<Appartement>(this.ApiUrl + 'appartemnt/'+id, this.httpOptions)
+    return this.http.get<Appartement>(this.ApiUrl + 'appartements/'+id, this.httpOptions)
   }
 
   update(act:Appartement,id:number):Observable<Appartement> {
-    return this.http.post<Appartement>(this.ApiUrl + 'appartemnt/'+id,act, this.httpOptions)
+    return this.http.post<Appartement>(this.ApiUrl + 'appartements/'+id,act, this.httpOptions)
   }
 
   updateuser(id:number):Observable<any> {
@@ -72,13 +72,13 @@ export class AppartementService {
   }
 
   destroy(id:number):Observable<any> {
-    return this.http.delete(this.ApiUrl + 'appartemntadmin/'+id, this.httpOptions)
+    return this.http.delete(this.ApiUrl + 'appartementsadmin/'+id, this.httpOptions)
   }
 
 
 
 
   likeOrUnlike(id:number):Observable<any> {
-    return this.http.get(this.ApiUrl + 'appartemnt/'+id+'/likes', this.httpOptions)
+    return this.http.get(this.ApiUrl + 'appartements/'+id+'/likes', this.httpOptions)
   }
 }

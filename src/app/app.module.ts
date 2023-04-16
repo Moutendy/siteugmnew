@@ -8,7 +8,13 @@ import { SidenavComponent } from './views/layout/sidenav/sidenav.component';
 import { LayoutModule } from './views/layout/layout.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UgmInterceptor } from './core/services/ugm.interceptor';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,8 +22,17 @@ import { UgmInterceptor } from './core/services/ugm.interceptor';
   imports: [
     BrowserModule,
     LayoutModule,
+    MatFormFieldModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatGridListModule,
+    BrowserModule,
+    AppRoutingModule,
+    MatSelectModule,
+    MatCardModule,
+    MatInputModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS,
     useClass: UgmInterceptor,

@@ -1,5 +1,11 @@
-<div class="actu">
-    <img class="card-img-top img" src="../../../../assets/images/eva.jpg" alt="Card image cap">
+<div class="actu" *ngFor="let user of userprofil">
+    <img class="card-img-top img" src="{{ user.couverture }}" alt="Card image cap">
+
+    <div class="btns" *ngIf="boutoncouverture">
+        <button type="button" class="btn btn-success add_files" (click)="addCouvertue()">{{'ajouter'}}</button>
+        <button type="button" class="btn btn-light Cancel" (click)="cancelcouverture()">{{'retour'}}</button>
+    </div>
+
     <input type="file" #input_file class="input-file" multiple style="text-align: right; vertical-align: right;" accept="application/jpg" (change)="onChangeCouverture($event)">
 
     <div class="icon1" (click)="getFilesCouverture()">
@@ -9,8 +15,8 @@
       <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
     </svg>
     </div>
-    <div class="profil">
-        <img class="img" src="../../../../assets/images/eva.jpg" alt="">
+    <div class="profil" *ngFor="let user of userprofil">
+        <img class="img" src="{{ user.image }}" alt="">
         <input type="file" #input_file class="input-file" multiple style="text-align: right; vertical-align: right;" accept="application/jpg" (change)="onChange($event)">
         <div class="icon" (click)="getFiles()">
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
@@ -19,5 +25,9 @@
           </svg>
         </div>
     </div>
-    <div (click)="sendprofil()">Code point</div>
+
+    <div class="btns" *ngIf="bouton">
+        <button type="button" class="btn btn-success add_files" (click)="addFile()">{{'ajouter'}}</button>
+        <button type="button" class="btn btn-light Cancel" (click)="cancel()">{{'retour'}}</button>
+    </div>
 </div>

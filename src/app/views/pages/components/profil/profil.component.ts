@@ -1,59 +1,88 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { take } from 'rxjs';
+import { User } from 'src/app/core/model/user';
+import { ProfilService } from 'src/app/core/services/profil.service';
 
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css']
 })
-export class ProfilComponent {
+export class ProfilComponent implements OnInit {
+  uploadForm!: FormGroup;
+  bouton: boolean = false;
+  boutoncouverture: boolean = false;
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private profil: ProfilService
   ) { }
-  myFiles!: File ;
+  myFiles!: File;
+  userprofil!: User[];
   myFilesCouverture: string[] = [];
   @ViewChild('input_file')
   InputFileVariable!: ElementRef;
   ngOnInit(): void {
+    this.uploadForm = this.fb.group({
+      file: ['']
+    })
+    this.profile();
+  }
 
-        }
-
-        onChange(event: any) {
-          for (var i = 0; i < event.target.files.length; i++) {
-           console.log(event.target.files[i]);
-            this.myFiles=event.target.files[i];
-          }
-
-          if(event.target.files.length > 0){
-            this.InputFileVariable.nativeElement.value = "";
-          }
-        }
-
-
-        getFiles() {
-          this.InputFileVariable.nativeElement.click();
-        }
-        getFilesCouverture() {
-          this.InputFileVariable.nativeElement.click();
-        }
+  onChange(event: any) {
+    const file = event.target.files[0];
+    this.uploadForm.get('file')?.setValue(file);
+    this.bouton = true;
+    if (event.target.files.length > 0) {
+      this.InputFileVariable.nativeElement.value = "";
+    }
+  }
 
 
-        onChangeCouverture(event: any) {
-
-          for (var i = 0; i < event.target.files.length; i++) {
-            this.myFilesCouverture.push(event.target.files[i]);
-
-          }
-
-          if(event.target.files.length > 0){
-            this.InputFileVariable.nativeElement.value = "";
-          }
-        }
+  getFiles() {
+    this.InputFileVariable.nativeElement.click();
+  }
+  getFilesCouverture() {
+    this.InputFileVariable.nativeElement.click();
+  }
 
 
-        sendprofil()
-        {
-console.log(this.myFiles.name);
+  onChangeCouverture(event: any) {
 
-        }
+    const file = event.target.files[0];
+    this.boutoncouverture = true;
+    this.uploadForm.get('file')?.setValue(file);
+
+    if (event.target.files.length > 0) {
+      this.InputFileVariable.nativeElement.value = "";
+    }
+  }
+
+
+
+
+  cancel() {
+    this.bouton = false;
+  }
+  cancelcouverture() {
+    this.boutoncouverture = false;
+  }
+  addFile() {
+
+    this.profil.store(this.uploadForm.get('file')!.value);
+    this.profile();
+  }
+  addCouvertue() {
+    this.profil.usercouverture(this.uploadForm.get('file')!.value);
+
+    this.profile();
+
+  }
+
+  profile() {
+    this.profil.userprofil().pipe(take(1)).subscribe((data: any) => {
+      this.userprofil = data;
+
+    })
+  }
 }

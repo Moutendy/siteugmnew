@@ -1,55 +1,108 @@
-.table {
-    margin: 1%;
-    margin-top: 10%;
-    border-radius: 12.5px 12.5px 12.5px 12.5px;
-    box-shadow: 3px 3px rgb(167, 164, 164), -1em 0 0.4em beige;
+.section {
+    position: relative;
+    left: 42%;
+    top: 10%;
+    margin: 1%
 }
 
-.form {
-    width: 50%;
-    /* définit la largeur de l'élément */
-    margin: auto;
-    box-shadow: 3px 3px rgb(167, 164, 164), -1em 0 0.4em beige;
-    border-radius: 12.5px 12.5px 12.5px 12.5px;
+form {
+    position: relative;
+    top: 1%;
 }
 
-.body {
-    display: block;
-    width: 50%;
+mat-card {
+    display: flex;
+    width: 70%;
+    position: relative;
+    left: 15%;
+    top: 7%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.scrollable-section {
-    overflow-y: auto;
-    max-height: 250px;
+.example-form {
+    width: 100%;
 }
 
-.scrollable-section::-webkit-scrollbar {
-    width: 0;
-    /* rend la barre de défilement invisible */
+.example-full-width {
+    width: 100%;
 }
 
-.profil {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.file {
+    width: 400px;
 }
 
-.scrollable-section-table {
-    overflow-y: auto;
-    max-height: 300px;
+.reset {
+    all: revert;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.scrollable-section-table::-webkit-scrollbar {
-    width: 0;
-    /* rend la barre de défilement invisible */
+
+/*les boutons*/
+
+section {
+    display: table;
 }
 
-.scrollable-section {
-    overflow-y: auto;
-    max-height: 300px;
+.example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 10px;
+    min-width: 120px;
+    font-weight: bold;
 }
 
-.scrollable-section::-webkit-scrollbar {
-    width: 0;
-    /* rend la barre de défilement invisible */
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
+
+
+/*tableau*/
+
+
+/* CSS */
+
+
+/* CSS */
+
+.mat-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mat-table th.mat-header-cell {
+    padding: 16px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.mat-table td.mat-cell {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mat-table tr:hover {
+    background-color: #fafafa;
 }
