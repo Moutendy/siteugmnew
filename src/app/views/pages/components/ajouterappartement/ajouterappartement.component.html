@@ -1,65 +1,121 @@
-<h5 class="card-title text-center">tableau Appartement</h5>
-<div class="scrollable-section-table">
+<form>
+    <mat-card>
+        <mat-card-content>
+            <fieldset class="reset">
+                <legend class="reset">Ajouter une nouvelle Appartement</legend>
+                <div class="example-form">
+                    <div class="row ligne">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Ville</th>
-                <th scope="col">Desc</th>
-                <th scope="col">Prix</th>
-                <th scope="col">Image</th>
-            </tr>
-        </thead>
+                        <div class="col-md-6">
+                            Description
+                        </div>
 
-        <tbody>
 
-            <tr *ngFor="let apprt of appartements">
+                        <div class="col-md-6">
+                            <input type="password" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline">
 
-                <th scope="row">{{ apprt.name}}</th>
-                <th scope="row">{{ apprt.ville}}</th>
-                <td>{{ apprt.desc}}</td>
-                <td>{{ apprt.prix}}</td>
-                <td> <img *ngIf="apprt.image" src="{{ apprt.image }}" class="card-img-top profil" alt="..."></td>
+                        </div>
 
-            </tr>
 
-        </tbody>
+                    </div>
+                    <div class="row ligne">
 
-    </table>
-</div>
-<br/>
-<h5 class="card-title text-center" (click)="ajouter()">Ajouter Appartement</h5>
-<br/>
-<div class="text-center scrollable-section" *ngIf="table">
-    <form [formGroup]="appartementform" (ngSubmit)="ajouterappartement()" class="form">
+                        <div class="col-md-6">
+                            Ville
+                        </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Nom</label>
-            <input formControlName="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom...">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Ville</label>
-            <input formControlName="ville" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ville...">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"> Description</label>
-            <input formControlName="desc" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Description">
 
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"> Prix</label>
-            <input formControlName="prix" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2500dh">
+                        <div class="col-md-6">
+                            <input type="password" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline">
 
-        </div>
+                        </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"> Image</label>
-            <input (change)="onFileChange($event)" type="file" class="form-control" id="exampleFormControlInput1">
 
-        </div>
+                    </div>
+                    <div class="row ligne">
 
-        <input type="submit" class="btn btn-primary" value="Ajouter">
+                        <div class="col-md-6">
+                            prix
+                        </div>
 
-    </form>
-</div>
+
+                        <div class="col-md-6">
+                            <input type="password" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline">
+
+                        </div>
+
+
+                    </div>
+                    <div class="row ligne">
+                        <div class="col-md-6">
+
+                            Image
+                        </div>
+                        <div class="col-md-6">
+                            <input type="file" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline">
+
+                        </div>
+                    </div>
+                    <div class="row ligne">
+                        <div class="col-md-6">
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline">
+
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </mat-card-content>
+
+    </mat-card>
+
+</form>
+
+
+<!-- Afficher actualiter -->
+<mat-card class="table">
+    <mat-card-content>
+        <fieldset class="reset">
+            <legend class="reset">Appartements</legend>
+            <div class="row">
+                <div class="col-md-6">
+
+                    Recherche
+                </div>
+                <div class="col-md-6">
+                    <input type="text" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" placeholder="Recherche">
+                </div>
+            </div>
+            <div class="example-form">
+                <!-- HTML -->
+                <!-- HTML -->
+
+                <table class="mat-table ligne">
+                    <thead>
+                        <tr>
+                            <th mat-header-cell>Ville</th>
+                            <th mat-header-cell>Descriptions</th>
+                            <th mat-header-cell>Images</th>
+                            <th mat-header-cell>Prix</th>
+                            <th mat-header-cell>Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody class="ligne">
+                        <tr class="scroll ligne">
+                            <td mat-cell>Donnée 1-1</td>
+                            <td mat-cell>Donnée 1-2</td>
+                            <td mat-cell>Donnée 1-2</td>
+                            <td mat-cell>Donnée 1-2</td>
+                            <td mat-cell>Donnée 1-2</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </mat-card-content>
+
+</mat-card>
