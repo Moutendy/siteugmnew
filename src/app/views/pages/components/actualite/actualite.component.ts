@@ -25,7 +25,9 @@ export class ActualiteComponent {
   ) {
 
     }
-
+    currentPage = 1;
+    perPage = 10;
+    commentaire:boolean=false;
     actus!:Actu[];
     users!:User[];
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class ActualiteComponent {
   }
 
   index() {
-return this.actu.index().pipe(take(1)).subscribe((data:any) =>{
+return this.actu.indexvue().pipe(take(1)).subscribe((data:any) =>{
 this.actus=data.post;
 this.actus.forEach(e=>{
 
@@ -110,8 +112,7 @@ this.index();
 
   modale(id:number)
   {
-    const modalRef= this.modalService.open(CommentaireComponent, { size: 'm', centered: true });
-    modalRef.componentInstance.idcomment = id;
+   this.commentaire=!this.commentaire;
   }
 
   listeusers()

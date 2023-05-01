@@ -1,9 +1,9 @@
-<div class="page-header clear-filter" filter-color="black">
+<div class=" classe-de-votre-element clear-filter" filter-color="black">
     <div class="page-header-image" style="background-image:url(../../../../../assets/images/logogabon.jpg)"></div>
     <div class="content">
         <div class="container">
             <div class="col-md-4 ml-auto mr-auto">
-                <div class="card card-login card-plain">
+                <div>
 
                     <form [formGroup]="profileForm" (ngSubmit)="register()" class="form">
                         <div class="card-header text-center">
@@ -16,43 +16,35 @@
                             <div class="input-group no-border input-lg">
 
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text text-center">
-                <i class="now-ui-icons users_circle-08"></i>
-              </span>
+
                                 </div>
-                                <input formControlName="name" type="text" class="form-control btn-primary " placeholder="Nom..." required>
+                                <input formControlName="name" type="text" class="btn-round btn-block  form-control btn-primary " placeholder="Nom..." required>
                             </div>
                             <a for="exampleFormControlSelect1">Email</a>
                             <div class="input-group no-border input-lg">
 
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                  <i class="now-ui-icons users_circle-08"></i>
-                </span>
+
                                 </div>
-                                <input formControlName="email" type="email" class="form-control btn-primary " placeholder="Email..." required>
+                                <input formControlName="email" type="email" class="btn-round btn-block  form-control btn-primary " placeholder="Email..." required>
                             </div>
                             <a for="exampleFormControlSelect1">Mot de Passe</a>
                             <div class=" input-group no-border input-lg ">
                                 <div class="input-group-prepend ">
-                                    <span class="input-group-text ">
-                  <i class="now-ui-icons text_caps-small "></i>
-                </span>
+
                                 </div>
-                                <input formControlName="password" type="password" placeholder="Mot de Passe... " class="form-control btn-primary " required />
+                                <input formControlName="password" type="password" placeholder="Mot de Passe... " class="btn-round btn-block  form-control btn-primary " required />
                             </div>
                             <a for="exampleFormControlSelect1">Confirmation du Mot de Passe</a>
                             <div class=" input-group no-border input-lg ">
                                 <div class="input-group-prepend ">
-                                    <span class="input-group-text ">
-                  <i class="now-ui-icons text_caps-small "></i>
-                </span>
+
                                 </div>
-                                <input formControlName="password_confirmation" type="password" placeholder="Mot de Passe... " class="form-control btn-primary " required />
+                                <input formControlName="password_confirmation" type="password" placeholder="Mot de Passe... " class=" btn-round btn-block form-control btn-primary " required />
                             </div>
                             <br />
                             <div class="card-footer text-center ">
-                                <input type="submit" id="submit" value="LOGIN" class="btn btn-success btn-round btn-block " />
+                                <input type="submit" id="submit" value="Register" class="btn btn-success btn-round btn-block " />
                                 <div class="pull-left ">
                                     <h6>
                                         <a for="exampleFormControlSelect1" (click)="login()">J'ai déjà un compte</a>

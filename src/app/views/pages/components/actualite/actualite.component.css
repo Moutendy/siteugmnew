@@ -1,45 +1,54 @@
-/* .actu {
+    /* .actu {
     margin-left: 3%;
 } */
 
-.profil {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
+    .profil {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
 
-.cardre {
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    margin-left: 3%;
-}
+    .cardre {
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        margin-left: 3%;
+    }
 
-.part {
-    background-color: rgb(244, 244, 244);
-    color: white;
-    text-align: center;
-}
+    .part {
+        background-color: rgb(244, 244, 244);
+        color: white;
+        text-align: center;
+    }
 
-.likeandcom {
-    margin-bottom: 10%;
-}
+    .likeandcom {
+        margin-bottom: 10%;
+    }
 
-.scrollable-section {
-    overflow-y: auto;
-    max-height: 650px;
-    position: relative;
-}
+    .scrollable-section {
+        overflow-y: auto;
+        max-height: 650px;
+        position: relative;
+    }
 
-.scrollable-section::-webkit-scrollbar {
-    width: 0;
-    /* rend la barre de défilement invisible */
-}
+    .scrollable-section::-webkit-scrollbar {
+        width: 0;
+        /* rend la barre de défilement invisible */
+    }
 
-.desc {
-    margin: 2%;
-}
+    .desc {
+        margin: 2%;
+    }
 
-.icon {
-    position: relative;
-    top: 50%;
-    left: 10%;
-}
+    .icon {
+        position: relative;
+        top: 50%;
+        left: 10%;
+    }
+
+    .post {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .ligne {
+        color: black
+    }

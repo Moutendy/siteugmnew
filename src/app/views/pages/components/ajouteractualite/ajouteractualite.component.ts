@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { take } from 'rxjs';
+import { BehaviorSubject, take } from 'rxjs';
 import { ActuCLass } from 'src/app/core/classes/actu-class';
 import { Actu } from 'src/app/core/model/actu';
 import { ActualService } from 'src/app/core/services/actual.service';
@@ -18,13 +18,30 @@ interface Food {
 export class AjouteractualiteComponent {
   table: boolean = false;
   selectedFile!: File;
-  actualiter!: Actu[];
+  actualiter: Actu[]=[];
+  filteredItems:Actu[] = [];
   formulaire: boolean = false;
+  @ViewChild('input_file')
+  InputFileVariable!: ElementRef;
+  currentPage = 1;
+  perPage = 3;
+
+  total!: number;
+  pageOffset!: number;
+  pageIndex!: number;
+
+  paginate = new BehaviorSubject<any>({
+    page: 1,
+    pageOffset: 10
+  });
+
   foods: Food[] = [
     { value: 'steak-0', viewValue: 'Steak' },
     { value: 'pizza-1', viewValue: 'Pizza' },
     { value: 'tacos-2', viewValue: 'Tacos' },
   ];
+  searchValue!: string;
+  filterOption!: String;
   constructor(
     private actu: ActualService,
     private routes: Router,
@@ -39,30 +56,32 @@ export class AjouteractualiteComponent {
   actualite = this.fb.group({
     body: [''],
     image: ['']
-
-
-
   });
 
 
   ngOnInit(): void {
     this.index();
+    this.updateResults();
 
   }
   ajouter() {
     this.table = !this.table;
   }
+
+  getFiles() {
+    this.InputFileVariable.nativeElement.click();
+  }
   onFileChange(event: any) {
     this.selectedFile = event.target.files[0];
+    if(event.target.files.length > 0){
+      this.InputFileVariable.nativeElement.value = "";
+    }
   }
   ajouteractualiter() {
     this.actu.store(this.selectedFile, this.actualite.value.body);
     this.sucess("actu desirable ajoutée");
     this.table = !this.table;
     this.actualite.controls['body'].reset();
-
-
-
   }
 
   sucess(message: String) {
@@ -83,9 +102,44 @@ export class AjouteractualiteComponent {
   }
 
   index() {
-    this.actu.index().pipe(take(1)).subscribe((data: any) => {
-      this.actualiter = data.post
-      console.log(this.actualiter);
+    this.actu.index(this.currentPage,this.perPage).pipe(take(1)).subscribe((data: any) => {
+      this.actualiter = data.post.data
+      this.paginate=data.post.data
+      this.total = data.post.total;
+      console.log(data);
     })
   }
+
+  onPageChanged(page: number): void {
+    this.currentPage = page;
+    this.index();
+  }
+  searchByValue(items:any) {
+    return this.actualiter.filter((item) => {
+      if (this.searchValue.trim() === '') {
+        return item;
+      } else {
+        return item.body.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase()) || item.user.name.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase());
+      }
+    })
+
+
+}
+
+
+async updateResults() {
+  this.filteredItems = this.searchByValue(this.actualiter);
+
+
+}
+filterByOption(items:any) {
+  return items.filter((item: String) => {
+    if ( this.filterOption === item) {
+      return true;
+    }
+    else{
+      return false
+    }
+  })
+}
 }

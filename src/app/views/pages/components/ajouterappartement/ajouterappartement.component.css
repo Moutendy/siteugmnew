@@ -117,3 +117,7 @@ section {
 .mat-table tr:hover {
     background-color: #fafafa;
 }
+
+.input-file {
+    display: none;
+}

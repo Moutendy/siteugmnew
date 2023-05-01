@@ -9,7 +9,7 @@ import { AjouteractualiteComponent } from './ajouteractualite/ajouteractualite.c
 import { CineComponent } from './cine/cine.component';
 import { VisiteurComponent } from './visiteur/visiteur.component';
 import { AppartementModule } from './appartement/appartement.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppartementService } from 'src/app/core/services/appartement.service';
 import { ProfilComponent } from './profil/profil.component';
 import { ProfilModule } from './profil/profil.module';
@@ -17,6 +17,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { PaginationComponent } from 'src/app/pagination/pagination.component';
 const routes: Routes = [
   {
     path: 'actualite',
@@ -55,6 +57,7 @@ const routes: Routes = [
     CineComponent,
     VisiteurComponent,
     ProfilComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -66,7 +69,9 @@ const routes: Routes = [
     MatSelectModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    FormsModule
   ],
   providers:[AppartementService]
 })

@@ -1,5 +1,12 @@
 form {
-    position: relative;
-    left: 500px;
-    width: 400px
+    margin: 0 auto;
+}
+
+.classe-de-votre-element {
+    background-image: url('../../../../../assets/images/logogabon.jpg');
+    /* Autres propriétés de fond, comme la taille et la position */
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    z-index: 1
 }

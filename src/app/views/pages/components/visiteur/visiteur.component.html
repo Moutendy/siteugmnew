@@ -1,56 +1,46 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Ville</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Status</th>
-            <th scope="col">Raison de la visite</th>
-            <th scope="col">Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">Rabat</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>1 minutes</td>
-        </tr>
+<!-- Afficher actualiter -->
+<mat-card class="table">
+    <mat-card-content>
+        <fieldset class="reset">
+            <legend class="reset">Utilisateurs inscrit</legend>
+            <div class="row">
+                <div class="col-md-6">
 
-    </tbody>
-</table>
-<br/>
-<h5 class="card-title text-center" (click)="ajouter()">Ajouter visiteurs</h5>
-<br/>
-<div class="text-center" *ngIf="table">
-    <form class="form">
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Ville</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Rabat...">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"> Nom</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="chritian...">
+                    Recherche
+                </div>
+                <div class="col-md-6">
+                    <input type="text" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" placeholder="Recherche">
+                </div>
+            </div>
+            <div class="example-form">
+                <!-- HTML -->
+                <!-- HTML -->
 
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"> Status</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="etudiant">
+                <table class="mat-table ligne">
+                    <thead>
+                        <tr>
+                            <th mat-header-cell>Nom</th>
+                            <th mat-header-cell>Prenom</th>
+                            <th mat-header-cell>Email</th>
+                            <th mat-header-cell>Profil</th>
+                            <th mat-header-cell>Tel</th>
+                            <th mat-header-cell>Blocked</th>
+                        </tr>
+                    </thead>
+                    <tbody class="ligne">
+                        <tr class="scroll ligne">
+                            <td mat-cell>Donnée 1-1</td>
+                            <td mat-cell>Donnée 1-2</td>
+                            <td mat-cell>Donnée 1-2</td>
+                            <td mat-cell>Donnée 1-2</td>
+                            <td mat-cell>Donnée 1-2</td>
+                            <td mat-cell>True</td>
+                        </tr>
 
-        </div>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </mat-card-content>
 
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"> Raison de la visite</label>
-            <input type="file" class="form-control" id="exampleFormControlInput1">
-
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"> Date de la visite</label>
-            <input type="date" class="form-control" id="exampleFormControlInput1">
-
-        </div>
-
-        <input type="submit" class="btn btn-primary" value="Add">
-
-    </form>
-</div>
+</mat-card>

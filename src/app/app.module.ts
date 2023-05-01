@@ -15,9 +15,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     MatSelectModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+
   ],
   providers: [ { provide: HTTP_INTERCEPTORS,
     useClass: UgmInterceptor,

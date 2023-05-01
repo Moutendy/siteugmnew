@@ -33,7 +33,10 @@ export class RegisterComponent {
   {
 
     this.auth.register(this.profileForm.value.email,this.profileForm.value.password, this.profileForm.value.name, this.profileForm.value.password_confirmation).pipe(take(1)).subscribe((data:any) => {
-    this.local.saveData('token',data.token);
+
+   console.log(data);
+
+      this.local.saveData('token',data.token);
     this.local.saveData('name',data.user.name);
     this.sucess("Bienvenu "+this.local.getData("name"));
     this.routes.navigate(['/base/siteugm/actualite']);

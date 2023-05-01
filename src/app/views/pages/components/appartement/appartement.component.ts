@@ -22,7 +22,7 @@ private appartementservice:AppartementService,
     appartements!:Appartement[];
     users!:User[];
     ngOnInit(): void {
-this.index();
+    this.index();
     }
   modale(id:number)
   {
@@ -33,6 +33,8 @@ this.index();
   index() {
     return this.appartementservice.index().pipe(take(1)).subscribe((data:any) =>{
     this.appartements=data.appartements;
+    console.log( this.appartements);
+
     this.appartements.forEach(e=>{
 
 
@@ -94,5 +96,5 @@ return  this.appartementservice.likeOrUnlike(id).pipe(take(1)).subscribe((data)=
   }
 
 
- 
+
 }

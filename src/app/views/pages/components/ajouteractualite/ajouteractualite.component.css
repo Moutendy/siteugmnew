@@ -99,6 +99,9 @@ section {
     border-collapse: collapse;
     font-size: 16px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    /* Masquer le débordement horizontal */
+    overflow-x: hidden;
 }
 
 .mat-table th.mat-header-cell {
@@ -116,4 +119,19 @@ section {
 
 .mat-table tr:hover {
     background-color: #fafafa;
+}
+
+.input-file {
+    display: none;
+}
+
+.scrollable-section {
+    overflow-y: auto;
+    max-height: 300px;
+    position: relative;
+}
+
+.scrollable-section::-webkit-scrollbar {
+    width: 0;
+    /* rend la barre de défilement invisible */
 }

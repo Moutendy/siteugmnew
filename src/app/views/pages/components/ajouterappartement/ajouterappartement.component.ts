@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
 import { forkJoin, take } from 'rxjs';
 import { Appartement } from 'src/app/core/model/appartement';
@@ -14,6 +14,8 @@ export class AjouterappartementComponent {
   table:boolean=false;
   selectedFile!: File;
   appartements!:Appartement[];
+  @ViewChild('input_file')
+  InputFileVariable!: ElementRef;
 
   constructor(
     private appartservice:AppartementService,
@@ -89,7 +91,9 @@ export class AjouterappartementComponent {
     })
   }
 
-
+  getFiles() {
+    this.InputFileVariable.nativeElement.click();
+  }
 
 
 
