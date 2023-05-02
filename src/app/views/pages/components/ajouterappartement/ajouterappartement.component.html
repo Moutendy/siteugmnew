@@ -6,6 +6,14 @@
                 <div class="example-form">
                     <div class="row ligne">
                         <div class="col-md-6">
+                            Name
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" id="inputPassword6" formControlName="name" class="form-control" aria-labelledby="passwordHelpInline">
+                        </div>
+                    </div>
+                    <div class="row ligne">
+                        <div class="col-md-6">
                             Description
                         </div>
                         <div class="col-md-6">
@@ -71,7 +79,7 @@
                     Recherche
                 </div>
                 <div class="col-md-6">
-                    <input type="text" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" placeholder="Recherche">
+                    <input type="text" (keyup)="updateResults()" [(ngModel)]="searchValue" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" placeholder="Recherche">
                 </div>
             </div>
             <div class="example-form">
@@ -101,6 +109,8 @@
                 </table>
             </div>
         </fieldset>
+        <app-pagination [total]="total" [currentPage]="currentPage" [perPage]="perPage" (pageChanged)="onPageChanged($event)">
+        </app-pagination>
     </mat-card-content>
 
 </mat-card>

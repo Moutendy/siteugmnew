@@ -1,8 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject, take } from 'rxjs';
-import { ActuCLass } from 'src/app/core/classes/actu-class';
+import { BehaviorSubject, isEmpty, take } from 'rxjs';
 import { Actu } from 'src/app/core/model/actu';
 import { ActualService } from 'src/app/core/services/actual.service';
 import Swal from 'sweetalert2';
@@ -19,7 +18,6 @@ export class AjouteractualiteComponent {
   table: boolean = false;
   selectedFile!: File;
   actualiter: Actu[]=[];
-  filteredItems:Actu[] = [];
   formulaire: boolean = false;
   @ViewChild('input_file')
   InputFileVariable!: ElementRef;
@@ -40,19 +38,16 @@ export class AjouteractualiteComponent {
     { value: 'pizza-1', viewValue: 'Pizza' },
     { value: 'tacos-2', viewValue: 'Tacos' },
   ];
-  searchValue!: string;
+  searchValue!: String;
   filterOption!: String;
   constructor(
     private actu: ActualService,
     private routes: Router,
     private fb: UntypedFormBuilder,
 
-
-
   ) {
 
   }
-
   actualite = this.fb.group({
     body: [''],
     image: ['']
@@ -104,9 +99,7 @@ export class AjouteractualiteComponent {
   index() {
     this.actu.index(this.currentPage,this.perPage).pipe(take(1)).subscribe((data: any) => {
       this.actualiter = data.post.data
-      this.paginate=data.post.data
       this.total = data.post.total;
-      console.log(data);
     })
   }
 
@@ -114,32 +107,20 @@ export class AjouteractualiteComponent {
     this.currentPage = page;
     this.index();
   }
-  searchByValue(items:any) {
+
+  searchByValue() {
     return this.actualiter.filter((item) => {
       if (this.searchValue.trim() === '') {
+        return true;
+      }else if(this.searchValue === null || this.searchValue === undefined || this.searchValue === ''){
+        console.log(this.searchValue);
         return item;
       } else {
         return item.body.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase()) || item.user.name.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase());
       }
     })
-
-
 }
-
-
 async updateResults() {
-  this.filteredItems = this.searchByValue(this.actualiter);
-
-
-}
-filterByOption(items:any) {
-  return items.filter((item: String) => {
-    if ( this.filterOption === item) {
-      return true;
-    }
-    else{
-      return false
-    }
-  })
+  this.actualiter = this.searchByValue();
 }
 }

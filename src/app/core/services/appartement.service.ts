@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { Appartement } from '../model/appartement';
+import { AppartementClasse } from '../classes/appartements';
 
 @Injectable({
   providedIn: 'root'
@@ -27,21 +28,24 @@ export class AppartementService {
   index():Observable<Appartement> {
     return this.http.get<Appartement>(this.ApiUrl + 'appartements', this.httpOptions);
   }
+  indexPage(currentPage:number,perPage:number):Observable<Appartement> {
+    const url = `?page=${currentPage}&per_page=${perPage}`;
+    return this.http.get<Appartement>(this.ApiUrl + 'appartementspage'+url, this.httpOptions);
+  }
 
 
-
-  storeappartement(image: File,name:any,desc:any,ville:any,prix:any){
+  storeappartement(appart:AppartementClasse){
 
     const reader = new FileReader();
-    reader.readAsArrayBuffer(image);
+    reader.readAsArrayBuffer(appart.file);
     reader.onloadend = () => {
       if(reader.result){
           const formData = new FormData();
-          formData.append('image', image);
-          formData.append('name',name);
-          formData.append('desc',desc);
-          formData.append('ville',ville);
-          formData.append('prix',prix);
+          formData.append('image', appart.file);
+          formData.append('name',appart.name);
+          formData.append('desc',appart.desc);
+          formData.append('ville',appart.ville);
+          formData.append('prix',appart.prix);
           return this.http.post(this.ApiUrl + 'appartementsadmin',formData)
             .subscribe(response => {
 

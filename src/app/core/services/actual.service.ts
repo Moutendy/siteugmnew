@@ -23,16 +23,9 @@ export class ActualService {
       )
       }
 
-
-
-
-
-
-
   constructor(private http: HttpClient) { }
   index(currentPage:number,perPage:number):Observable<Actu> {
     const url = `?page=${currentPage}&per_page=${perPage}`;
-
     return this.http.get<Actu>(this.ApiUrl + 'posts'+url, this.httpOptions);
   }
 
