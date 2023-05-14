@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
     }
 
   constructor(
-
+    private router: Router,
     private http: HttpClient
   ) { }
 
@@ -51,5 +52,14 @@ export class AuthService {
   }
   getName(){
     return localStorage.getItem('name');
+  }
+
+  getRole(){
+    return localStorage.getItem('role');
+  }
+  logout()
+  {
+    localStorage.clear();
+    this.router.navigate(['/auth']);
   }
 }
