@@ -33,6 +33,8 @@ export class ActualiteComponent {
   ngOnInit(): void {
     this.index();
     this.listeusers();
+   console.log( this.local.getData('role'));
+
   }
 
   index() {

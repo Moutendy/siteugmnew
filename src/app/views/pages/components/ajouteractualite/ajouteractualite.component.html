@@ -1,9 +1,14 @@
 <form [formGroup]="actualite" (ngSubmit)="ajouteractualiter()">
-    <mat-card *ngIf="!formulaire">
+    <mat-card *ngIf="formulaire">
         <mat-card-content>
             <fieldset class="reset">
                 <legend class="reset">Ajouter une nouvelle actualité</legend>
                 <div class="example-form">
+                    <div class="row">
+                        <div class="col-md" (click)="showform()">
+                            Afficher
+                        </div>
+                    </div>
                     <div class="row ligne">
 
                         <div class="col-md-6">
@@ -52,13 +57,19 @@
         <fieldset class="reset">
             <legend class="reset">Actualité</legend>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md" (click)="showform()">
+                    Ajouter
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
 
                     Recherche
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <input type="text" (keyup)="updateResults()" [(ngModel)]="searchValue" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline">
                 </div>
+
             </div>
             <div class="example-form">
                 <!-- HTML -->
@@ -77,6 +88,8 @@
                                 {{actu.user.name }}
                             </td>
                         </tr>
+
+
                     </tbody>
                 </table>
             </div>

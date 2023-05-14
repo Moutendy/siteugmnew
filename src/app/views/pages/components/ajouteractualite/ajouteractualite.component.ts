@@ -17,12 +17,12 @@ interface Food {
 export class AjouteractualiteComponent {
   table: boolean = false;
   selectedFile!: File;
-  actualiter: Actu[]=[];
+  actualiter: Actu[] = [];
   formulaire: boolean = false;
   @ViewChild('input_file')
   InputFileVariable!: ElementRef;
   currentPage = 1;
-  perPage = 3;
+  perPage = 6;
 
   total!: number;
   pageOffset!: number;
@@ -68,7 +68,7 @@ export class AjouteractualiteComponent {
   }
   onFileChange(event: any) {
     this.selectedFile = event.target.files[0];
-    if(event.target.files.length > 0){
+    if (event.target.files.length > 0) {
       this.InputFileVariable.nativeElement.value = "";
     }
   }
@@ -77,8 +77,12 @@ export class AjouteractualiteComponent {
     this.sucess("actu desirable ajoutée");
     this.table = !this.table;
     this.actualite.controls['body'].reset();
+    this.showform();
   }
-
+showform()
+{
+  this.formulaire=!this.formulaire;
+}
   sucess(message: String) {
     const Toast = Swal.mixin({
       toast: true,
@@ -97,9 +101,11 @@ export class AjouteractualiteComponent {
   }
 
   index() {
-    this.actu.index(this.currentPage,this.perPage).pipe(take(1)).subscribe((data: any) => {
+    this.actu.index(this.currentPage, this.perPage).pipe(take(1)).subscribe((data: any) => {
       this.actualiter = data.post.data
       this.total = data.post.total;
+
+
     })
   }
 
@@ -110,17 +116,26 @@ export class AjouteractualiteComponent {
 
   searchByValue() {
     return this.actualiter.filter((item) => {
-      if (this.searchValue.trim() === '') {
-        return true;
-      }else if(this.searchValue === null || this.searchValue === undefined || this.searchValue === ''){
-        console.log(this.searchValue);
+      if (this.searchValue === '') {
+        return item;
+      } else if (this.searchValue === null || this.searchValue === undefined || this.searchValue === '') {
+       
         return item;
       } else {
         return item.body.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase()) || item.user.name.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase());
       }
     })
-}
-async updateResults() {
-  this.actualiter = this.searchByValue();
-}
+  }
+  async updateResults() {
+    if (this.searchValue) {
+      this.actualiter = this.searchByValue();
+    }else{
+      this.actu.index(this.currentPage, this.perPage).pipe(take(1)).subscribe((data: any) => {
+        this.actualiter = data.post.data
+        this.total = data.post.total;
+      })
+    }
+
+
+  }
 }

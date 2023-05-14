@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./ajouterappartement.component.css']
 })
 export class AjouterappartementComponent {
-  table:boolean=false;
+  formulaire: boolean = false;
   selectedFile!: File;
   searchValue!: String;
   appartements!:Appartement[];
@@ -20,7 +20,7 @@ export class AjouterappartementComponent {
   @ViewChild('input_file')
   InputFileVariable!: ElementRef;
   currentPage = 1;
-  perPage = 3;
+  perPage = 6;
   total!: number;
   pageOffset!: number;
   pageIndex!: number;
@@ -45,7 +45,7 @@ export class AjouterappartementComponent {
     }
   ajouter()
   {
-    this.table=!this.table;
+    this.formulaire=!this.formulaire;
   }
   onFileChange(event: any ) {
     this.selectedFile = event.target.files[0];
@@ -104,7 +104,7 @@ export class AjouterappartementComponent {
       if (this.searchValue.trim() === '') {
         return true;
       }else if(this.searchValue === null || this.searchValue === undefined || this.searchValue === ''){
-   
+
         return item;
       } else {
         return item.ville.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase()) || item.user.name.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase());
@@ -112,7 +112,19 @@ export class AjouterappartementComponent {
     })
 }
 async updateResults() {
-  this.appartements = this.searchByValue();
+
+  if (this.searchValue) {
+    this.appartements = this.searchByValue();
+  }
+  else{
+    this.appartservice.indexPage(this.currentPage,this.perPage).pipe(take(1)).subscribe((data:any)=>{
+      this.appartements=data.appartements.data
+      this.total = data.appartements.total;
+     
+
+
+   })
+  }
 }
 
 

@@ -19,6 +19,10 @@ mat-card {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+* {
+    font-family: "Roboto", "Helvetica Neue", sans-serif
+}
+
 .table {
     width: 100%;
     position: relative;
@@ -40,7 +44,7 @@ mat-card {
 
 .reset {
     all: revert;
-    font-size: 1.2em;
+    font-size: 0.9em;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -106,7 +110,7 @@ section {
 
 .mat-table th.mat-header-cell {
     padding: 16px;
-    font-weight: 600;
+    font-weight: 400;
     text-align: left;
     border-bottom: 1px solid #ccc;
 }
@@ -134,4 +138,9 @@ section {
 .scrollable-section::-webkit-scrollbar {
     width: 0;
     /* rend la barre de défilement invisible */
+}
+
+.custom-margin {
+    padding-left: 7%;
+    margin-left: 0%;
 }

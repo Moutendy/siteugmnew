@@ -1,9 +1,15 @@
 <form [formGroup]="appartementform" (ngSubmit)="ajouterappartement()">
-    <mat-card>
+    <mat-card *ngIf="formulaire">
         <mat-card-content>
             <fieldset class="reset">
                 <legend class="reset">Ajouter un nouvelle Appartement</legend>
                 <div class="example-form">
+                    <div class="row ligne">
+                        <div class="col-md-3 " (click)="ajouter()">
+                            <div class="form-control">Affiche</div>
+                        </div>
+
+                    </div>
                     <div class="row ligne">
                         <div class="col-md-6">
                             Name
@@ -69,10 +75,16 @@
 
 
 <!-- Afficher actualiter -->
-<mat-card class="table">
+<mat-card class="table" *ngIf="!formulaire">
     <mat-card-content>
         <fieldset class="reset">
             <legend class="reset">Appartements</legend>
+            <div class="row">
+                <div class="col-md-3 form-control" (click)="ajouter()">
+                    Ajouter
+                </div>
+
+            </div>
             <div class="row">
                 <div class="col-md-6">
 
@@ -112,5 +124,6 @@
         <app-pagination [total]="total" [currentPage]="currentPage" [perPage]="perPage" (pageChanged)="onPageChanged($event)">
         </app-pagination>
     </mat-card-content>
+
 
 </mat-card>

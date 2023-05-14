@@ -42,11 +42,13 @@ this.routes.navigate(['auth/login']);
   login()
   {
     this.auth.login(this.profileForm.value.email, this.profileForm.value.password).pipe(take(1)).subscribe((data:any) => {
+console.log(data.user[0]);
 
 
 this.local.saveData('token',data.token);
 this.local.saveData('name',data.user.name);
 this.local.saveData('image',data.user.image);
+this.local.saveData('role',data.user[0].roles[0].name);
 this.sucess("Bienvenu "+this.local.getData("name"));
 this.routes.navigate(['/base/siteugm/actualite']);
 
