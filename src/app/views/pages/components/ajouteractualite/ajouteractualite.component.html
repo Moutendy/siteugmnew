@@ -74,24 +74,7 @@
             <div class="example-form">
                 <!-- HTML -->
                 <!-- HTML -->
-                <table class="mat-table">
-                    <thead>
-                        <tr>
-                            <th mat-header-cell>Descriptions</th>
-                            <th mat-header-cell>User</th>
-                        </tr>
-                    </thead>
-                    <tbody class="scrollable-section">
-                        <tr *ngFor="let actu of actualiter; let i = index;">
-                            <td mat-cell>{{actu.body }}</td>
-                            <td mat-cell>
-                                {{actu.user.name }}
-                            </td>
-                        </tr>
-
-
-                    </tbody>
-                </table>
+                <app-table [datas]="actualiter"></app-table>
             </div>
         </fieldset>
         <app-pagination [total]="total" [currentPage]="currentPage" [perPage]="perPage" (pageChanged)="onPageChanged($event)">

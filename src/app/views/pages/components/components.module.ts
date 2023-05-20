@@ -19,6 +19,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PaginationComponent } from 'src/app/pagination/pagination.component';
+import { TableComponent } from '../shared/table/table.component';
 const routes: Routes = [
   {
     path: 'actualite',
@@ -57,7 +58,8 @@ const routes: Routes = [
     CineComponent,
     VisiteurComponent,
     ProfilComponent,
-    PaginationComponent
+    PaginationComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,

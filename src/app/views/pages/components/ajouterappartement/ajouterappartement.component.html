@@ -97,28 +97,7 @@
             <div class="example-form">
                 <!-- HTML -->
                 <!-- HTML -->
-
-                <table class="mat-table ligne">
-                    <thead>
-                        <tr>
-                            <th mat-header-cell>Ville</th>
-                            <th mat-header-cell>Descriptions</th>
-
-                            <th mat-header-cell>Prix</th>
-                            <th mat-header-cell>Detail</th>
-                        </tr>
-                    </thead>
-                    <tbody class="ligne">
-                        <tr class="scroll ligne" *ngFor="let apparts of appartements">
-                            <td mat-cell>{{ apparts.ville }}</td>
-
-                            <td mat-cell>{{ apparts.desc }}</td>
-                            <td mat-cell>{{ apparts.prix }}</td>
-                            <td mat-cell></td>
-                        </tr>
-
-                    </tbody>
-                </table>
+                <app-table [datas]="appartements"></app-table>
             </div>
         </fieldset>
         <app-pagination [total]="total" [currentPage]="currentPage" [perPage]="perPage" (pageChanged)="onPageChanged($event)">

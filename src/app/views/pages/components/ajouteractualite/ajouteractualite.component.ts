@@ -5,6 +5,7 @@ import { BehaviorSubject, isEmpty, take } from 'rxjs';
 import { Actu } from 'src/app/core/model/actu';
 import { ActualService } from 'src/app/core/services/actual.service';
 import Swal from 'sweetalert2';
+import { Data } from '../../shared/models/datageniric';
 interface Food {
   value: string;
   viewValue: string;
@@ -17,7 +18,7 @@ interface Food {
 export class AjouteractualiteComponent {
   table: boolean = false;
   selectedFile!: File;
-  actualiter: Actu[] = [];
+  actualiter: Data[] = [];
   formulaire: boolean = false;
   @ViewChild('input_file')
   InputFileVariable!: ElementRef;
@@ -119,7 +120,7 @@ showform()
       if (this.searchValue === '') {
         return item;
       } else if (this.searchValue === null || this.searchValue === undefined || this.searchValue === '') {
-       
+
         return item;
       } else {
         return item.body.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase()) || item.user.name.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase());

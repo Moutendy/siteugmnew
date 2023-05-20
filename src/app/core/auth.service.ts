@@ -14,7 +14,7 @@ export class AuthService {
     headers: new HttpHeaders().set(
       'Content-Type', 'application/x-www-form-urlencoded'
     )
-    }
+  }
 
   constructor(
     private router: Router,
@@ -26,12 +26,12 @@ export class AuthService {
     let body = new URLSearchParams();
     body.set('email', email);
     body.set('password', password);
-  console.log(email);
+    console.log(email);
     return this.http.post(this.ApiUrl + 'login', body, this.httpOptions)
   }
 
 
-  register(email: string, password: string,name:string,password_confirmation:string) {
+  register(email: string, password: string, name: string, password_confirmation: string) {
     let body = new URLSearchParams();
 
     body.set('name', name);
@@ -47,18 +47,17 @@ export class AuthService {
     return localStorage.getItem('token') != null;
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('token');
   }
-  getName(){
+  getName() {
     return localStorage.getItem('name');
   }
 
-  getRole(){
+  getRole() {
     return localStorage.getItem('role');
   }
-  logout()
-  {
+  logout() {
     localStorage.clear();
     this.router.navigate(['/auth']);
   }

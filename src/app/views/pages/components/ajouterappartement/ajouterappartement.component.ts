@@ -5,6 +5,7 @@ import { AppartementClasse } from 'src/app/core/classes/appartements';
 import { Appartement } from 'src/app/core/model/appartement';
 import { AppartementService } from 'src/app/core/services/appartement.service';
 import Swal from 'sweetalert2';
+import { Data } from '../../shared/models/datageniric';
 
 @Component({
   selector: 'app-ajouterappartement',
@@ -15,7 +16,7 @@ export class AjouterappartementComponent {
   formulaire: boolean = false;
   selectedFile!: File;
   searchValue!: String;
-  appartements!:Appartement[];
+  appartements:Data[]=[];
   appartement!:AppartementClasse;
   @ViewChild('input_file')
   InputFileVariable!: ElementRef;
@@ -120,7 +121,7 @@ async updateResults() {
     this.appartservice.indexPage(this.currentPage,this.perPage).pipe(take(1)).subscribe((data:any)=>{
       this.appartements=data.appartements.data
       this.total = data.appartements.total;
-     
+
 
 
    })
