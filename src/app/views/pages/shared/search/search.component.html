@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-4">
+        <input type="text" (keyup)="updateResults()" [(ngModel)]="searchValue" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" placeholder="Recherche">
+    </div>
+    <div class="col-md-4">
+        <select [(ngModel)]="selectColor" class="form-control" (change)="changeColors()">
+    <option [value]="c"  *ngFor="let c of colors" >{{ c }}</option>
+  </select>
+    </div>
+</div>
+
+<div class="example-form p-2">
+    <table class="mat-table ligne col-md-12" *ngIf="true" [ngStyle]="{'color': textColor, 'font-size': fontSize + 'px' ,'background-color': tableColor}">
+        <thead>
+            <tr>
+                <th mat-header-cell>Ville</th>
+                <th mat-header-cell>Descriptions</th>
+
+                <th mat-header-cell>Prix</th>
+                <th mat-header-cell>Detail</th>
+            </tr>
+        </thead>
+        <tbody class="ligne">
+            <tr class="scroll ligne" *ngFor="let data of appartements">
+                <td mat-cell>{{ data.ville }}</td>
+                <td mat-cell>{{ data.desc }}</td>
+                <td mat-cell>{{ data.prix}}</td>
+                <td mat-cell></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <table class="mat-table ligne" *ngIf="false">
+        <thead>
+            <tr>
+
+                <th mat-header-cell>Descriptions</th>
+
+                <th mat-header-cell>User</th>
+
+            </tr>
+        </thead>
+        <tbody class="ligne">
+            <tr class="scroll ligne" *ngFor="let data of appartements">
+                <td mat-cell>{{ data.body }}</td>
+                <td mat-cell>{{ data.user.name }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

@@ -20,6 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PaginationComponent } from 'src/app/pagination/pagination.component';
 import { TableComponent } from '../shared/table/table.component';
+import { SearchComponent } from '../shared/search/search.component';
 const routes: Routes = [
   {
     path: 'actualite',
@@ -59,7 +60,8 @@ const routes: Routes = [
     VisiteurComponent,
     ProfilComponent,
     PaginationComponent,
-    TableComponent
+    TableComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,

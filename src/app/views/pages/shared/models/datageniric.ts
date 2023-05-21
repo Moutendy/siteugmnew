@@ -20,3 +20,10 @@ export interface Data
   likes_count:number;
   comments_count:number
 }
+
+export interface Colors
+{
+  textColor:String;
+  backgoundColor:String;
+
+}

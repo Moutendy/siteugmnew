@@ -10,14 +10,14 @@ import { Data } from '../../shared/models/datageniric';
 @Component({
   selector: 'app-ajouterappartement',
   templateUrl: './ajouterappartement.component.html',
-  styleUrls: ['./ajouterappartement.component.css']
+  styleUrls: ['./ajouterappartement.component.css'],
 })
 export class AjouterappartementComponent {
   formulaire: boolean = false;
   selectedFile!: File;
   searchValue!: String;
-  appartements:Data[]=[];
-  appartement!:AppartementClasse;
+  appartements: Data[] = [];
+  appartement!: AppartementClasse;
   @ViewChild('input_file')
   InputFileVariable!: ElementRef;
   currentPage = 1;
@@ -25,45 +25,44 @@ export class AjouterappartementComponent {
   total!: number;
   pageOffset!: number;
   pageIndex!: number;
+  selectColor: String = 'red'
   constructor(
-    private appartservice:AppartementService,
+    private appartservice: AppartementService,
     private fb: UntypedFormBuilder,
   ) {
 
-    }
-
-    appartementform = this.fb.group({
-      name: ['',Validators.required],
-      image:['',Validators.required],
-      prix: ['',Validators.required],
-      ville: ['',Validators.required],
-      desc: ['',Validators.required],
-    });
-
-
-    ngOnInit(): void {
-      this.index();
-    }
-  ajouter()
-  {
-    this.formulaire=!this.formulaire;
   }
-  onFileChange(event: any ) {
+
+  appartementform = this.fb.group({
+    name: ['', Validators.required],
+    image: ['', Validators.required],
+    prix: ['', Validators.required],
+    ville: ['', Validators.required],
+    desc: ['', Validators.required],
+  });
+
+
+  ngOnInit(): void {
+    this.index();
+
+  }
+  ajouter() {
+    this.formulaire = !this.formulaire;
+  }
+  onFileChange(event: any) {
     this.selectedFile = event.target.files[0];
   }
-  ajouterappartement()
-  {
+  ajouterappartement() {
     this.appartement = new AppartementClasse();
-    this.appartement.desc=this.appartementform.value.desc;
-    this.appartement.prix=this.appartementform.value.prix;
-    this.appartement.ville=this.appartementform.value.ville;
-    this.appartement.name=this.appartementform.value.name;
-    this.appartement.file=this.selectedFile;
-     this.appartservice.storeappartement(this.appartement);
+    this.appartement.desc = this.appartementform.value.desc;
+    this.appartement.prix = this.appartementform.value.prix;
+    this.appartement.ville = this.appartementform.value.ville;
+    this.appartement.name = this.appartementform.value.name;
+    this.appartement.file = this.selectedFile;
+    this.appartservice.storeappartement(this.appartement);
   }
 
-  sucess(message:String)
-  {
+  sucess(message: String) {
     const Toast = Swal.mixin({
       toast: true,
       position: 'center',
@@ -80,12 +79,11 @@ export class AjouterappartementComponent {
 
   }
 
-  index()
-  {
-    this.appartservice.indexPage(this.currentPage,this.perPage).pipe(take(1)).subscribe((data:any)=>{
-       this.appartements=data.appartements.data
-       this.total = data.appartements.total;
-      console.log(data);
+  index() {
+    this.appartservice.indexPage(this.currentPage, this.perPage).pipe(take(1)).subscribe((data: any) => {
+      this.appartements = data.appartements.data
+      this.total = data.appartements.total;
+
 
 
     })
@@ -98,35 +96,15 @@ export class AjouterappartementComponent {
     this.InputFileVariable.nativeElement.click();
   }
 
-  searchByValue() {
 
+   updateResults() {
 
-    return this.appartements.filter((item) => {
-      if (this.searchValue.trim() === '') {
-        return true;
-      }else if(this.searchValue === null || this.searchValue === undefined || this.searchValue === ''){
-
-        return item;
-      } else {
-        return item.ville.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase()) || item.user.name.toLowerCase().includes(this.searchValue.trim().toLocaleLowerCase());
-      }
-    })
-}
-async updateResults() {
-
-  if (this.searchValue) {
-    this.appartements = this.searchByValue();
   }
-  else{
-    this.appartservice.indexPage(this.currentPage,this.perPage).pipe(take(1)).subscribe((data:any)=>{
-      this.appartements=data.appartements.data
-      this.total = data.appartements.total;
 
+  changeColors(event:any)
+  {
 
-
-   })
   }
-}
 
 
 }

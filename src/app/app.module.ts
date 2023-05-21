@@ -16,11 +16,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { SearchComponent } from './views/pages/shared/search/search.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-
 
   ],
   imports: [
@@ -38,6 +39,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatCardModule,
     MatInputModule,
     MatToolbarModule,
+    FormsModule,
+
 
   ],
   providers: [ { provide: HTTP_INTERCEPTORS,
